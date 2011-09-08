@@ -1,0 +1,112 @@
+Tirestore
+v7
+r0
+t337144087.439408
+cCheck dependencies
+cCompileC build/irestore.build/Debug/irestore.build/Objects-normal/i386/irestore.o /Users/kitty/Desktop/irestore/irestore.c normal i386 c com.apple.compilers.gcc.4_2
+cLd /Users/kitty/Desktop/irestore/build/Debug/irestore normal i386
+
+N/Developer/SDKs/MacOSX10.6.sdk
+c000000004D5A274300000000000000EE
+t1297753923
+s238
+
+N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation
+c000000004D5A279000000000000830F8
+t1297754000
+s536824
+
+N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CoreFoundation.h
+c000000004CC3E8CB0000000000000AF4
+t1287907531
+s2804
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/getopt.h
+c000000004BBD2CE90000000000000CBC
+t1270689001
+s3260
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/stdio.h
+c000000004BBD2CE90000000000004174
+t1270689001
+s16756
+
+N/System/Library/PrivateFrameworks/MobileDevice.framework/MobileDevice
+c000000004E0C3B7F0000000000207490
+t1309424511
+s2126992
+
+N/Users/kitty/Desktop/irestore/MobileDevice.h
+c000000004E682CC3000000000000275A
+t1315450051
+s10074
+i<CoreFoundation/CoreFoundation.h>
+
+N/Users/kitty/Desktop/irestore/build/Debug/irestore
+t1315451287
+s15536
+
+N/Users/kitty/Desktop/irestore/build/irestore.build/Debug/irestore.build/Objects-normal/i386/irestore.LinkFileList
+c000000004E6830820000000000000067
+t1315451010
+s103
+
+N/Users/kitty/Desktop/irestore/build/irestore.build/Debug/irestore.build/Objects-normal/i386/irestore.o
+t1315451287
+s13844
+
+N/Users/kitty/Desktop/irestore/build/irestore.build/Debug/irestore.build/Objects-normal/i386/main.o
+t2
+s0
+
+N/Users/kitty/Desktop/irestore/irestore.c
+c000000004E68319600000000000009B4
+t1315451286
+s2484
+i"irestore.h"
+i<getopt.h>
+
+N/Users/kitty/Desktop/irestore/irestore.h
+c000000004E682EEA0000000000000105
+t1315450602
+s261
+i<stdio.h>
+i"MobileDevice.h"
+i<CoreFoundation/CoreFoundation.h>
+
+N/Users/kitty/Desktop/irestore/main.c
+c000000004E68305B0000000000000089
+t1315450971
+s137
+i<stdio.h>
+
+CCheck dependencies
+r0
+lSLF07#2@18"Check dependencies337144087#337144087#0(0"0(0#1#0"2489991712#0"0#
+
+CCompileC build/irestore.build/Debug/irestore.build/Objects-normal/i386/irestore.o /Users/kitty/Desktop/irestore/irestore.c normal i386 c com.apple.compilers.gcc.4_2
+s337144087.421249
+e337144087.422272
+r1
+xCompileC
+xbuild/irestore.build/Debug/irestore.build/Objects-normal/i386/irestore.o
+x/Users/kitty/Desktop/irestore/irestore.c
+xnormal
+xi386
+xc
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@48"Compile /Users/kitty/Desktop/irestore/irestore.c337144087#337144087#0(178"/Users/kitty/Desktop/irestore/irestore.c: In function 'main':/Users/kitty/Desktop/irestore/irestore.c:51: warning: passing argument 2 of 'getopt' from incompatible pointer type1(22@61"Passing argument 2 of 'getopt' from incompatible pointer type337144087#62#116#0(6@40"/Users/kitty/Desktop/irestore/irestore.c337144086#51#0#51#0#56"passing argument * of '*' from incompatible pointer type0(0#0#40"/Users/kitty/Desktop/irestore/irestore.c2489991712#1257"    cd /Users/kitty/Desktop/irestore    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch i386 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/kitty/Desktop/irestore/build/irestore.build/Debug/irestore.build/irestore-generated-files.hmap -I/Users/kitty/Desktop/irestore/build/irestore.build/Debug/irestore.build/irestore-own-target-headers.hmap -I/Users/kitty/Desktop/irestore/build/irestore.build/Debug/irestore.build/irestore-all-target-headers.hmap -iquote /Users/kitty/Desktop/irestore/build/irestore.build/Debug/irestore.build/irestore-project-headers.hmap -F/Users/kitty/Desktop/irestore/build/Debug -F/Developer/SDKs/MacOSX10.6.sdk/System/Library/PrivateFrameworks -I/Users/kitty/Desktop/irestore/build/Debug/include -I/Users/kitty/Desktop/irestore/build/irestore.build/Debug/irestore.build/DerivedSources/i386 -I/Users/kitty/Desktop/irestore/build/irestore.build/Debug/irestore.build/DerivedSources -c /Users/kitty/Desktop/irestore/irestore.c -o /Users/kitty/Desktop/irestore/build/irestore.build/Debug/irestore.build/Objects-normal/i386/irestore.o0#
+
+CCompileC build/irestore.build/Debug/irestore.build/Objects-normal/i386/main.o /Users/kitty/Desktop/irestore/main.c normal i386 c com.apple.compilers.gcc.4_2
+r0
+
+CLd /Users/kitty/Desktop/irestore/build/Debug/irestore normal i386
+s337144087.422321
+e337144087.439335
+r1
+xLd
+x/Users/kitty/Desktop/irestore/build/Debug/irestore
+xnormal
+xi386
+lSLF07#2@55"Link /Users/kitty/Desktop/irestore/build/Debug/irestore337144087#337144087#0(0"0(0#0#0"2489991712#569"    cd /Users/kitty/Desktop/irestore    setenv MACOSX_DEPLOYMENT_TARGET 10.6    /Developer/usr/bin/gcc-4.2 -arch i386 -isysroot /Developer/SDKs/MacOSX10.6.sdk -L/Users/kitty/Desktop/irestore/build/Debug -F/Users/kitty/Desktop/irestore/build/Debug -F/Developer/SDKs/MacOSX10.6.sdk/System/Library/PrivateFrameworks -filelist /Users/kitty/Desktop/irestore/build/irestore.build/Debug/irestore.build/Objects-normal/i386/irestore.LinkFileList -mmacosx-version-min=10.6 -framework CoreFoundation -framework MobileDevice -o /Users/kitty/Desktop/irestore/build/Debug/irestore0#
+

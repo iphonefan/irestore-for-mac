@@ -1,0 +1,126 @@
+Tirestore
+v7
+r0
+t337143810.134792
+cCheck dependencies
+cCompileC build/irestore.build/Debug/irestore.build/Objects-normal/i386/irestore.o /Users/kitty/Desktop/irestore/irestore.c normal i386 c com.apple.compilers.gcc.4_2
+cLd /Users/kitty/Desktop/irestore/build/Debug/irestore normal i386
+
+N/Developer/SDKs/MacOSX10.6.sdk
+c000000004D5A274300000000000000EE
+t1297753923
+s238
+
+N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CoreFoundation.h
+c000000004CC3E8CB0000000000000AF4
+t1287907531
+s2804
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/getopt.h
+c000000004BBD2CE90000000000000CBC
+t1270689001
+s3260
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/stdio.h
+c000000004BBD2CE90000000000004174
+t1270689001
+s16756
+
+N/Users/kitty/Desktop/irestore/MobileDevice.h
+c000000004E682CC3000000000000275A
+t1315450051
+s10074
+i<CoreFoundation/CoreFoundation.h>
+
+N/Users/kitty/Desktop/irestore/build/Debug/irestore
+t2
+s0
+
+N/Users/kitty/Desktop/irestore/build/irestore.build/Debug/irestore.build/Objects-normal/i386/irestore.LinkFileList
+c000000004E6830820000000000000067
+t1315451010
+s103
+
+N/Users/kitty/Desktop/irestore/build/irestore.build/Debug/irestore.build/Objects-normal/i386/irestore.o
+t1315451010
+s13732
+
+N/Users/kitty/Desktop/irestore/build/irestore.build/Debug/irestore.build/Objects-normal/i386/main.o
+t2
+s0
+
+N/Users/kitty/Desktop/irestore/irestore.c
+c000000004E682FE40000000000000967
+t1315450852
+s2407
+i"irestore.h"
+i<getopt.h>
+
+N/Users/kitty/Desktop/irestore/irestore.h
+c000000004E682EEA0000000000000105
+t1315450602
+s261
+i<stdio.h>
+i"MobileDevice.h"
+i<CoreFoundation/CoreFoundation.h>
+
+N/Users/kitty/Desktop/irestore/main.c
+c000000004E68305B0000000000000089
+t1315450971
+s137
+i<stdio.h>
+
+CCheck dependencies
+r0
+lSLF07#2@18"Check dependencies337143809#337143810#0(0"0(0#1#0"4261848#0"0#
+
+CCompileC build/irestore.build/Debug/irestore.build/Objects-normal/i386/irestore.o /Users/kitty/Desktop/irestore/irestore.c normal i386 c com.apple.compilers.gcc.4_2
+s337143810.020740
+e337143810.120786
+r1
+xCompileC
+xbuild/irestore.build/Debug/irestore.build/Objects-normal/i386/irestore.o
+x/Users/kitty/Desktop/irestore/irestore.c
+xnormal
+xi386
+xc
+xcom.apple.compilers.gcc.4_2
+o/Users/kitty/Desktop/irestore/irestore.c: In function 'main':
+o/Users/kitty/Desktop/irestore/irestore.c:49: warning: passing argument 2 of 'getopt' from incompatible pointer type
+lSLF07#2@48"Compile /Users/kitty/Desktop/irestore/irestore.c337143810#337143810#0(178"/Users/kitty/Desktop/irestore/irestore.c: In function 'main':/Users/kitty/Desktop/irestore/irestore.c:49: warning: passing argument 2 of 'getopt' from incompatible pointer type1(22@61"Passing argument 2 of 'getopt' from incompatible pointer type337143810#62#116#0(6@40"/Users/kitty/Desktop/irestore/irestore.c337143652#49#0#49#0#56"passing argument * of '*' from incompatible pointer type0(0#0#40"/Users/kitty/Desktop/irestore/irestore.c4261848#1191"    cd /Users/kitty/Desktop/irestore    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch i386 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/kitty/Desktop/irestore/build/irestore.build/Debug/irestore.build/irestore-generated-files.hmap -I/Users/kitty/Desktop/irestore/build/irestore.build/Debug/irestore.build/irestore-own-target-headers.hmap -I/Users/kitty/Desktop/irestore/build/irestore.build/Debug/irestore.build/irestore-all-target-headers.hmap -iquote /Users/kitty/Desktop/irestore/build/irestore.build/Debug/irestore.build/irestore-project-headers.hmap -F/Users/kitty/Desktop/irestore/build/Debug -I/Users/kitty/Desktop/irestore/build/Debug/include -I/Users/kitty/Desktop/irestore/build/irestore.build/Debug/irestore.build/DerivedSources/i386 -I/Users/kitty/Desktop/irestore/build/irestore.build/Debug/irestore.build/DerivedSources -c /Users/kitty/Desktop/irestore/irestore.c -o /Users/kitty/Desktop/irestore/build/irestore.build/Debug/irestore.build/Objects-normal/i386/irestore.o0#
+
+CCompileC build/irestore.build/Debug/irestore.build/Objects-normal/i386/main.o /Users/kitty/Desktop/irestore/main.c normal i386 c com.apple.compilers.gcc.4_2
+r0
+
+CLd /Users/kitty/Desktop/irestore/build/Debug/irestore normal i386
+s337143810.121119
+e337143810.134724
+r0
+xLd
+x/Users/kitty/Desktop/irestore/build/Debug/irestore
+xnormal
+xi386
+oUndefined symbols:
+o  "___CFConstantStringClassReference", referenced from:
+o      cfstring=iPod in irestore.o
+o      cfstring=iPhone in irestore.o
+o      cfstring=iPad in irestore.o
+o      cfstring=Unknown in irestore.o
+o  "_AMRestoreRegisterForDeviceNotifications", referenced from:
+o      _main in irestore.o
+o  "_AMRestoreEnableFileLogging", referenced from:
+o      _main in irestore.o
+o  "_AMDSetLogLevel", referenced from:
+o      _main in irestore.o
+o      _main in irestore.o
+o  "_AMRestoreSetLogLevel", referenced from:
+o      _main in irestore.o
+o      _main in irestore.o
+o  "_AMDAddLogFileDescriptor", referenced from:
+o      _main in irestore.o
+o  "_AMDeviceNotificationSubscribe", referenced from:
+o      _main in irestore.o
+old: symbol(s) not found
+ocollect2: ld returned 1 exit status
+lSLF07#2@55"Link /Users/kitty/Desktop/irestore/build/Debug/irestore337143810#337143810#0(779"Undefined symbols:  "___CFConstantStringClassReference", referenced from:      cfstring=iPod in irestore.o      cfstring=iPhone in irestore.o      cfstring=iPad in irestore.o      cfstring=Unknown in irestore.o  "_AMRestoreRegisterForDeviceNotifications", referenced from:      _main in irestore.o  "_AMRestoreEnableFileLogging", referenced from:      _main in irestore.o  "_AMDSetLogLevel", referenced from:      _main in irestore.o      _main in irestore.o  "_AMRestoreSetLogLevel", referenced from:      _main in irestore.o      _main in irestore.o  "_AMDAddLogFileDescriptor", referenced from:      _main in irestore.o  "_AMDeviceNotificationSubscribe", referenced from:      _main in irestore.old: symbol(s) not foundcollect2: ld returned 1 exit status21(4@53""___CFConstantStringClassReference", referenced from:337143810#19#56#0(6@0"337143810#0#0#0#0#0"0(13@27"Cfstring=iPod in irestore.o337143810#75#34#0(6@0"337143810#0#0#0#0#0"0(13@29"Cfstring=iPhone in irestore.o337143810#109#36#0(6@0"337143810#0#0#0#0#0"0(13@27"Cfstring=iPad in irestore.o337143810#145#34#0(6@0"337143810#0#0#0#0#0"0(13@30"Cfstring=Unknown in irestore.o337143810#179#37#0(6@0"337143810#0#0#0#0#0"0(4@60""_AMRestoreRegisterForDeviceNotifications", referenced from:337143810#216#63#0(6@0"337143810#0#0#0#0#0"0(13@19"_main in irestore.o337143810#279#26#0(6@0"337143810#0#0#0#0#0"0(4@47""_AMRestoreEnableFileLogging", referenced from:337143810#305#50#0(6@0"337143810#0#0#0#0#0"0(13@19"_main in irestore.o337143810#355#26#0(6@0"337143810#0#0#0#0#0"0(4@35""_AMDSetLogLevel", referenced from:337143810#381#38#0(6@0"337143810#0#0#0#0#0"0(13@19"_main in irestore.o337143810#419#26#0(6@0"337143810#0#0#0#0#0"0(13@19"_main in irestore.o337143810#445#26#0(6@0"337143810#0#0#0#0#0"0(4@41""_AMRestoreSetLogLevel", referenced from:337143810#471#44#0(6@0"337143810#0#0#0#0#0"0(13@19"_main in irestore.o337143810#515#26#0(6@0"337143810#0#0#0#0#0"0(13@19"_main in irestore.o337143810#541#26#0(6@0"337143810#0#0#0#0#0"0(4@44""_AMDAddLogFileDescriptor", referenced from:337143810#567#47#0(6@0"337143810#0#0#0#0#0"0(13@19"_main in irestore.o337143810#614#26#0(6@0"337143810#0#0#0#0#0"0(4@50""_AMDeviceNotificationSubscribe", referenced from:337143810#640#53#0(6@0"337143810#0#0#0#0#0"0(13@19"_main in irestore.o337143810#693#26#0(6@0"337143810#0#0#0#0#0"0(13@19"Symbol(s) not found337143810#719#24#0(6@0"337143810#0#0#0#0#0"0(13@35"Collect2: ld returned 1 exit status337143810#743#36#0(6@0"337143810#0#0#0#0#0"0(0#0#0"4261848#453"    cd /Users/kitty/Desktop/irestore    setenv MACOSX_DEPLOYMENT_TARGET 10.6    /Developer/usr/bin/gcc-4.2 -arch i386 -isysroot /Developer/SDKs/MacOSX10.6.sdk -L/Users/kitty/Desktop/irestore/build/Debug -F/Users/kitty/Desktop/irestore/build/Debug -filelist /Users/kitty/Desktop/irestore/build/irestore.build/Debug/irestore.build/Objects-normal/i386/irestore.LinkFileList -mmacosx-version-min=10.6 -o /Users/kitty/Desktop/irestore/build/Debug/irestore1#
+
