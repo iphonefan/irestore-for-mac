@@ -4,6 +4,7 @@
 
 #define RESTORE 1
 #define UPDATE 2
+#define cs(x) CFStringCreateWithCString(NULL, (x), kCFStringEncodingUTF8)
 
 int MODE;
 int custom;
@@ -12,3 +13,5 @@ char* ipsw;
 char* signingServer = "http://gs.apple.com";
 Boolean cf = false;
 Boolean updateBB = true;
+
+CFMutableDictionaryRef createOptions();

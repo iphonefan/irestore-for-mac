@@ -12,8 +12,36 @@
 			4F9EC6FA141867DB00BBCCD6 /* irestore */,
 		);
 		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					1473,
+					20,
+					48.16259765625,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
 			PBXPerProjectTemplateStateSaveDate = 337143771;
 			PBXWorkspaceStateSaveDate = 337143771;
+		};
+		perUserProjectItems = {
+			4F9EC76C1418796E00BBCCD6 /* PBXTextBookmark */ = 4F9EC76C1418796E00BBCCD6 /* PBXTextBookmark */;
+			4F9EC76D1418796E00BBCCD6 /* PBXTextBookmark */ = 4F9EC76D1418796E00BBCCD6 /* PBXTextBookmark */;
+			4F9EC76E1418796E00BBCCD6 /* XCBuildMessageTextBookmark */ = 4F9EC76E1418796E00BBCCD6 /* XCBuildMessageTextBookmark */;
+			4F9EC7781418797400BBCCD6 /* PBXTextBookmark */ = 4F9EC7781418797400BBCCD6 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 4F9EC6FE141867E000BBCCD6 /* Source Control */;
 		userBuildSettings = {
@@ -35,6 +63,7 @@
 		dataTipSortType = 0;
 		debuggerPlugin = GDBDebugging;
 		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
 		enableDebugStr = 1;
 		environmentEntries = (
 		);
@@ -42,6 +71,8 @@
 		executableUserSymbolLevel = 0;
 		libgmallocEnabled = 0;
 		name = irestore;
+		savedGlobals = {
+		};
 		showTypeColumn = 0;
 		sourceDirectories = (
 		);
@@ -59,6 +90,68 @@
 	4F9EC6FF141867E000BBCCD6 /* Code sense */ = {
 		isa = PBXCodeSenseManager;
 		indexTemplatePath = "";
+	};
+	4F9EC7011418680000BBCCD6 /* irestore.c */ = {
+		uiCtxt = {
+			sepNavFolds = "{\n    c =     (\n                {\n            l = \"void *callback\";\n            r = \"{408, 18}\";\n            s = 1;\n        },\n                {\n            l = \"void *callback\";\n            r = \"{674, 18}\";\n            s = 1;\n        }\n    );\n    r = \"{0, 3433}\";\n    s = 0;\n}";
+			sepNavIntBoundsRect = "{{0, 0}, {1651, 1638}}";
+			sepNavSelRange = "{769, 0}";
+			sepNavVisRange = "{0, 1439}";
+		};
+	};
+	4F9EC7021418680000BBCCD6 /* irestore.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1651, 653}}";
+			sepNavSelRange = "{359, 0}";
+			sepNavVisRange = "{0, 376}";
+			sepNavWindowFrame = "{{672, 149}, {1123, 889}}";
+		};
+	};
+	4F9EC7031418680000BBCCD6 /* MobileDevice.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {2364, 3029}}";
+			sepNavSelRange = "{7394, 0}";
+			sepNavVisRange = "{5887, 2861}";
+		};
+	};
+	4F9EC76C1418796E00BBCCD6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 4F9EC7021418680000BBCCD6 /* irestore.h */;
+		name = "irestore.h: 17";
+		rLen = 0;
+		rLoc = 359;
+		rType = 0;
+		vrLen = 376;
+		vrLoc = 0;
+	};
+	4F9EC76D1418796E00BBCCD6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 4F9EC7031418680000BBCCD6 /* MobileDevice.h */;
+		name = "MobileDevice.h: 173";
+		rLen = 0;
+		rLoc = 7394;
+		rType = 0;
+		vrLen = 2861;
+		vrLoc = 5887;
+	};
+	4F9EC76E1418796E00BBCCD6 /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "Expected expression before '<' token";
+		fRef = 4F9EC7011418680000BBCCD6 /* irestore.c */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 13;
+		rType = 1;
+	};
+	4F9EC7781418797400BBCCD6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 4F9EC7011418680000BBCCD6 /* irestore.c */;
+		name = "irestore.c: 26";
+		rLen = 0;
+		rLoc = 803;
+		rType = 0;
+		vrLen = 1473;
+		vrLoc = 0;
 	};
 	8DD76FA90486AB0100D96B5E /* irestore */ = {
 		activeExec = 0;

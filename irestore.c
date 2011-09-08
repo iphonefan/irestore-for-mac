@@ -1,31 +1,27 @@
 #include "irestore.h"
 #include <getopt.h>
-
-int norm = 0;
-int dfu = 0;
-int recovery = 0;
-
-static struct __AMDevice *normDev;
-static struct __AMRecoveryModeDevice *rdev;
-static struct __AMDFUModeDevice *ddev;
-
+int ret;
 void normalCallback(AMDeviceNotificationRef notif) {
-	norm = 1;
-	normDev = notif->device;
+	puts("Found device in Normal Mode");	
+	ret = AMDeviceEnterRecovery(notif->device);
+	if (ret != 0) {
+		puts("Device could not enter recovery mode!\n");
+		exit(ret);
+	}	
 }
 void dfuCallback(AMDFUModeDeviceRef dev) {
-	dfu = 1;
-	ddev = dev;
+	puts("Found device in DFU Mode");	
+	AMRestorePerformDFUModeRestore(dev, createOptions(), <#void *callback#>, NULL);
 }
 void disdfuCallback(AMDFUModeDeviceRef dev) {
-	ddev = dev;
+	printf("Device exited DFU Mode\n");
 }
 void recoveryCallback(AMRecoveryModeDeviceRef dev) {
-	recovery = 1;
-	rdev = dev;
+	puts("Found device in Recovery Mode");
+	AMRestorePerformRecoveryModeRestore(dev, createOptions(), <#void *callback#>, NULL);
 }
 void disRecoveryCallback(AMRecoveryModeDeviceRef dev) {
-	rdev = dev;
+	printf("Device exited Recovery Mode\n");
 }
 
 void usage() {
@@ -42,6 +38,9 @@ void usage() {
 	printf("\t-v        Be verbose\n");
 }
 int main (int argc, const char **argv[]) {
+	
+	CFShow(createOptions());
+	
     if (argc < 2) {
 		usage();
 		return 0;
@@ -70,7 +69,7 @@ int main (int argc, const char **argv[]) {
 				break;
 		}
 	}
-	
+		
 	if (!ipsw || MODE == 0) {
 		usage();
 		return 0;
@@ -87,7 +86,7 @@ int main (int argc, const char **argv[]) {
 		AMRestoreSetLogLevel(0);
 	}
 	
-	int ret = AMDeviceNotificationSubscribe(normalCallback, 0, 0, 0, NULL);
+	ret = AMDeviceNotificationSubscribe(normalCallback, 0, 0, 0, NULL);
 	if (ret != 0) {
 		printf("AMDeviceNotificationSubscribe failed with status %d\n",ret);
 		exit(ret);
@@ -98,19 +97,29 @@ int main (int argc, const char **argv[]) {
 		exit(ret);
 	}
 	
-	
-	if (dfu) {		
-		puts("Found device in DFU Mode");		
-	}
-	else if (recovery) {		
-		puts("Found device in Recovery Mode");
-		
-	}
-	else if (norm) {
-		puts("Found device in Normal Mode");
-	}	
-	else {
-		puts("Could not determine device mode. Please make sure a device is connected");
-	}	
+	CFRunLoopRun();
+	return 0;
+}
 
+CFMutableDictionaryRef createOptions() {
+	CFMutableDictionaryRef dOptions = AMRestoreCreateDefaultOptions(kCFAllocatorDefault);
+	CFMutableDictionaryRef cOptions = CFDictionaryCreateMutable(NULL, 0, &kCFTypeDictionaryKeyCallBacks, &kCFTypeDictionaryValueCallBacks);
+	if (MODE == RESTORE) {
+		CFDictionarySetValue(dOptions, CFSTR("AuthInstallVariant"), CFSTR("Customer Erase Install (IPSW)"));
+	}
+	else {
+		CFDictionarySetValue(dOptions, CFSTR("AuthInstallVariant"), CFSTR("Customer Upgrade Install (IPSW)"));
+	}
+
+	CFDictionarySetValue(dOptions, CFSTR("AuthInstallSigningServerURL"), cs(signingServer));
+	CFDictionarySetValue(dOptions, CFSTR("SourceRestoreBundlePath"), cs(ipsw));
+	
+	if (updateBB == false) {
+		CFDictionarySetValue(dOptions, CFSTR("UpdateBaseband"), kCFBooleanFalse);
+	}
+	
+	CFDictionarySetValue(cOptions, CFSTR("BootOptions"), dOptions);
+	CFDictionarySetValue(cOptions, CFSTR("RestoreOptions"), dOptions);
+	
+	return cOptions;
 }

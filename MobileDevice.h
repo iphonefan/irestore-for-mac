@@ -170,13 +170,14 @@ extern "C" {
 	
 	AMRestoreModeDeviceRef AMRestoreModeDeviceCreate(int alwaysZero_1, int connectionID, int alwaysZero_2);
 	
-	CFDictionaryRef AMRestoreCreateDefaultOptions(CFAllocatorRef allocator); // may also be used for recovery/dfu restores
+	CFMutableDictionaryRef AMRestoreCreateDefaultOptions(CFAllocatorRef allocator); // may also be used for recovery/dfu restores
 	AMStatus AMRestorePerformRestoreModeRestore(AMRecoveryModeDeviceRef device, CFDictionaryRef restoreOptions, void *callback, void *userInfo);
 	
 	// Functions for use with AMDFUModeDeviceRef objects(DFU/WTF interface)
 	uint16_t AMDFUModeDeviceGetProductID(AMDFUModeDeviceRef device);
 	uint32_t AMDFUModeDeviceGetProductType(AMDFUModeDeviceRef device);
 	uint64_t AMDFUModeDeviceGetECID(AMDFUModeDeviceRef device);
+	AMStatus AMRestorePerformDFUModeRestore(AMDFUModeDeviceRef device, CFDictionaryRef restoreOptions, void *callback, void *userInfo);
     
 	AMStatus USBMuxConnectByPort(int connectionID, int phonePort, CFSocketNativeHandle *outHandle);
 	// Log functions (iSn0wra1n)
