@@ -1,9 +1,10 @@
 Tirestore
 v7
 r0
-t337148254.359619
+t337152630.823364
 cCheck dependencies
 cCompileC build/irestore.build/Debug/irestore.build/Objects-normal/i386/irestore.o /Users/kitty/Desktop/irestore/irestore.c normal i386 c com.apple.compilers.gcc.4_2
+cLd /Users/kitty/Desktop/irestore/build/Debug/irestore normal i386
 
 N/Developer/SDKs/MacOSX10.6.sdk
 c000000004D5A274300000000000000EE
@@ -19,6 +20,11 @@ N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/CoreFoundation.framewo
 c000000004CC3E8CB0000000000000AF4
 t1287907531
 s2804
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/dlfcn.h
+c000000004D0890EB0000000000000B1C
+t1292407019
+s2844
 
 N/Developer/SDKs/MacOSX10.6.sdk/usr/include/getopt.h
 c000000004BBD2CE90000000000000CBC
@@ -36,14 +42,14 @@ t1309424511
 s2126992
 
 N/Users/kitty/Desktop/irestore/MobileDevice.h
-c000000004E6841DE00000000000027E6
-t1315455454
-s10214
+c000000004E6852880000000000002828
+t1315459720
+s10280
 i<CoreFoundation/CoreFoundation.h>
 
 N/Users/kitty/Desktop/irestore/build/Debug/irestore
-t1315455198
-s16180
+t1315459830
+s16488
 
 N/Users/kitty/Desktop/irestore/build/irestore.build/Debug/irestore.build/Objects-normal/i386/irestore.LinkFileList
 c000000004E6830820000000000000067
@@ -51,27 +57,27 @@ t1315451010
 s103
 
 N/Users/kitty/Desktop/irestore/build/irestore.build/Debug/irestore.build/Objects-normal/i386/irestore.o
-t2
-s0
+t1315459830
+s17804
 
 N/Users/kitty/Desktop/irestore/build/irestore.build/Debug/irestore.build/Objects-normal/i386/main.o
 t2
 s0
 
 N/Users/kitty/Desktop/irestore/irestore.c
-c000000004E6841F10000000000000D69
-t1315455473
-s3433
+c000000004E68531A0000000000000D86
+t1315459866
+s3462
 i"irestore.h"
-i<getopt.h>
 
 N/Users/kitty/Desktop/irestore/irestore.h
-c000000004E683EC50000000000000178
-t1315454661
-s376
+c000000004E68429F000000000000018C
+t1315455647
+s396
 i<stdio.h>
 i"MobileDevice.h"
 i<CoreFoundation/CoreFoundation.h>
+i<getopt.h>
 
 N/Users/kitty/Desktop/irestore/main.c
 c000000004E68305B0000000000000089
@@ -81,12 +87,12 @@ i<stdio.h>
 
 CCheck dependencies
 r0
-lSLF07#2@18"Check dependencies337148254#337148254#0(0"0(0#1#0"2489991712#0"0#
+lSLF07#2@18"Check dependencies337152630#337152630#0(0"0(0#1#0"2489991712#0"0#
 
 CCompileC build/irestore.build/Debug/irestore.build/Objects-normal/i386/irestore.o /Users/kitty/Desktop/irestore/irestore.c normal i386 c com.apple.compilers.gcc.4_2
-s337148254.282447
-e337148254.359531
-r0
+s337152630.805681
+e337152630.806615
+r1
 xCompileC
 xbuild/irestore.build/Debug/irestore.build/Objects-normal/i386/irestore.o
 x/Users/kitty/Desktop/irestore/irestore.c
@@ -94,49 +100,18 @@ xnormal
 xi386
 xc
 xcom.apple.compilers.gcc.4_2
-o/Users/kitty/Desktop/irestore/irestore.c: In function 'dfuCallback':
-o/Users/kitty/Desktop/irestore/irestore.c:14: error: expected expression before '<' token
-o/Users/kitty/Desktop/irestore/irestore.c:14: error: too few arguments to function 'AMRestorePerformDFUModeRestore'
-o/Users/kitty/Desktop/irestore/irestore.c: In function 'recoveryCallback':
-o/Users/kitty/Desktop/irestore/irestore.c:21: error: expected expression before '<' token
-o/Users/kitty/Desktop/irestore/irestore.c:21: error: too few arguments to function 'AMRestorePerformRecoveryModeRestore'
-o/Users/kitty/Desktop/irestore/irestore.c: In function 'main':
-o/Users/kitty/Desktop/irestore/irestore.c:50: warning: passing argument 2 of 'getopt' from incompatible pointer type
-o{standard input}:583:non-relocatable subtraction expression, "L_ret$non_lazy_ptr" minus "L00000000003$pb"
-o{standard input}:583:symbol: "L_ret$non_lazy_ptr" can't be undefined in a subtraction expression
-o{standard input}:573:non-relocatable subtraction expression, "L_ret$non_lazy_ptr" minus "L00000000003$pb"
-o{standard input}:573:symbol: "L_ret$non_lazy_ptr" can't be undefined in a subtraction expression
-o{standard input}:569:non-relocatable subtraction expression, "L_ret$non_lazy_ptr" minus "L00000000003$pb"
-o{standard input}:569:symbol: "L_ret$non_lazy_ptr" can't be undefined in a subtraction expression
-o{standard input}:386:non-relocatable subtraction expression, "L_APPLE_MOBILE_DEVICES$non_lazy_ptr" minus "L00000000001$pb"
-o{standard input}:386:symbol: "L_APPLE_MOBILE_DEVICES$non_lazy_ptr" can't be undefined in a subtraction expression
-o{standard input}:370:non-relocatable subtraction expression, "L_APPLE_MOBILE_DEVICES$non_lazy_ptr" minus "L00000000001$pb"
-o{standard input}:370:symbol: "L_APPLE_MOBILE_DEVICES$non_lazy_ptr" can't be undefined in a subtraction expression
-o{standard input}:344:non-relocatable subtraction expression, "L_APPLE_MOBILE_DEVICES$non_lazy_ptr" minus "L00000000001$pb"
-o{standard input}:344:symbol: "L_APPLE_MOBILE_DEVICES$non_lazy_ptr" can't be undefined in a subtraction expression
-o{standard input}:326:non-relocatable subtraction expression, "L_APPLE_MOBILE_DEVICES$non_lazy_ptr" minus "L00000000001$pb"
-o{standard input}:326:symbol: "L_APPLE_MOBILE_DEVICES$non_lazy_ptr" can't be undefined in a subtraction expression
-o{standard input}:305:non-relocatable subtraction expression, "L_APPLE_MOBILE_DEVICES$non_lazy_ptr" minus "L00000000001$pb"
-o{standard input}:305:symbol: "L_APPLE_MOBILE_DEVICES$non_lazy_ptr" can't be undefined in a subtraction expression
-o{standard input}:287:non-relocatable subtraction expression, "L_APPLE_MOBILE_DEVICES$non_lazy_ptr" minus "L00000000001$pb"
-o{standard input}:287:symbol: "L_APPLE_MOBILE_DEVICES$non_lazy_ptr" can't be undefined in a subtraction expression
-o{standard input}:272:non-relocatable subtraction expression, "L_APPLE_USB_INTERFACES$non_lazy_ptr" minus "L00000000001$pb"
-o{standard input}:272:symbol: "L_APPLE_USB_INTERFACES$non_lazy_ptr" can't be undefined in a subtraction expression
-o{standard input}:unknown:Undefined local symbol L_APPLE_USB_INTERFACES$non_lazy_ptr
-o{standard input}:unknown:Undefined local symbol L_APPLE_MOBILE_DEVICES$non_lazy_ptr
-o{standard input}:unknown:Undefined local symbol L_ret$non_lazy_ptr
-lSLF07#2@48"Compile /Users/kitty/Desktop/irestore/irestore.c337148254#337148254#0(3237"/Users/kitty/Desktop/irestore/irestore.c: In function 'dfuCallback':/Users/kitty/Desktop/irestore/irestore.c:14: error: expected expression before '<' token/Users/kitty/Desktop/irestore/irestore.c:14: error: too few arguments to function 'AMRestorePerformDFUModeRestore'/Users/kitty/Desktop/irestore/irestore.c: In function 'recoveryCallback':/Users/kitty/Desktop/irestore/irestore.c:21: error: expected expression before '<' token/Users/kitty/Desktop/irestore/irestore.c:21: error: too few arguments to function 'AMRestorePerformRecoveryModeRestore'/Users/kitty/Desktop/irestore/irestore.c: In function 'main':/Users/kitty/Desktop/irestore/irestore.c:50: warning: passing argument 2 of 'getopt' from incompatible pointer type{standard input}:583:non-relocatable subtraction expression, "L_ret$non_lazy_ptr" minus "L00000000003$pb"{standard input}:583:symbol: "L_ret$non_lazy_ptr" can't be undefined in a subtraction expression{standard input}:573:non-relocatable subtraction expression, "L_ret$non_lazy_ptr" minus "L00000000003$pb"{standard input}:573:symbol: "L_ret$non_lazy_ptr" can't be undefined in a subtraction expression{standard input}:569:non-relocatable subtraction expression, "L_ret$non_lazy_ptr" minus "L00000000003$pb"{standard input}:569:symbol: "L_ret$non_lazy_ptr" can't be undefined in a subtraction expression{standard input}:386:non-relocatable subtraction expression, "L_APPLE_MOBILE_DEVICES$non_lazy_ptr" minus "L00000000001$pb"{standard input}:386:symbol: "L_APPLE_MOBILE_DEVICES$non_lazy_ptr" can't be undefined in a subtraction expression{standard input}:370:non-relocatable subtraction expression, "L_APPLE_MOBILE_DEVICES$non_lazy_ptr" minus "L00000000001$pb"{standard input}:370:symbol: "L_APPLE_MOBILE_DEVICES$non_lazy_ptr" can't be undefined in a subtraction expression{standard input}:344:non-relocatable subtraction expression, "L_APPLE_MOBILE_DEVICES$non_lazy_ptr" minus "L00000000001$pb"{standard input}:344:symbol: "L_APPLE_MOBILE_DEVICES$non_lazy_ptr" can't be undefined in a subtraction expression{standard input}:326:non-relocatable subtraction expression, "L_APPLE_MOBILE_DEVICES$non_lazy_ptr" minus "L00000000001$pb"{standard input}:326:symbol: "L_APPLE_MOBILE_DEVICES$non_lazy_ptr" can't be undefined in a subtraction expression{standard input}:305:non-relocatable subtraction expression, "L_APPLE_MOBILE_DEVICES$non_lazy_ptr" minus "L00000000001$pb"{standard input}:305:symbol: "L_APPLE_MOBILE_DEVICES$non_lazy_ptr" can't be undefined in a subtraction expression{standard input}:287:non-relocatable subtraction expression, "L_APPLE_MOBILE_DEVICES$non_lazy_ptr" minus "L00000000001$pb"{standard input}:287:symbol: "L_APPLE_MOBILE_DEVICES$non_lazy_ptr" can't be undefined in a subtraction expression{standard input}:272:non-relocatable subtraction expression, "L_APPLE_USB_INTERFACES$non_lazy_ptr" minus "L00000000001$pb"{standard input}:272:symbol: "L_APPLE_USB_INTERFACES$non_lazy_ptr" can't be undefined in a subtraction expression{standard input}:unknown:Undefined local symbol L_APPLE_USB_INTERFACES$non_lazy_ptr{standard input}:unknown:Undefined local symbol L_APPLE_MOBILE_DEVICES$non_lazy_ptr{standard input}:unknown:Undefined local symbol L_ret$non_lazy_ptr5(4@36"Expected expression before '<' token337148254#69#89#0(6@40"/Users/kitty/Desktop/irestore/irestore.c337148162#14#0#14#0#19"expected * before *0(4@62"Too few arguments to function 'AMRestorePerformDFUModeRestore'337148254#158#115#0(6@40"/Users/kitty/Desktop/irestore/irestore.c337148162#14#0#14#0#33"too few arguments to function '*'0(4@36"Expected expression before '<' token337148254#347#89#0(6@40"/Users/kitty/Desktop/irestore/irestore.c337148162#21#0#21#0#19"expected * before *0(4@67"Too few arguments to function 'AMRestorePerformRecoveryModeRestore'337148254#436#120#0(6@40"/Users/kitty/Desktop/irestore/irestore.c337148162#21#0#21#0#33"too few arguments to function '*'0(22@61"Passing argument 2 of 'getopt' from incompatible pointer type337148254#618#116#0(6@40"/Users/kitty/Desktop/irestore/irestore.c337148162#50#0#50#0#56"passing argument * of '*' from incompatible pointer type0(0#0#40"/Users/kitty/Desktop/irestore/irestore.c2489991712#1257"    cd /Users/kitty/Desktop/irestore    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch i386 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/kitty/Desktop/irestore/build/irestore.build/Debug/irestore.build/irestore-generated-files.hmap -I/Users/kitty/Desktop/irestore/build/irestore.build/Debug/irestore.build/irestore-own-target-headers.hmap -I/Users/kitty/Desktop/irestore/build/irestore.build/Debug/irestore.build/irestore-all-target-headers.hmap -iquote /Users/kitty/Desktop/irestore/build/irestore.build/Debug/irestore.build/irestore-project-headers.hmap -F/Users/kitty/Desktop/irestore/build/Debug -F/Developer/SDKs/MacOSX10.6.sdk/System/Library/PrivateFrameworks -I/Users/kitty/Desktop/irestore/build/Debug/include -I/Users/kitty/Desktop/irestore/build/irestore.build/Debug/irestore.build/DerivedSources/i386 -I/Users/kitty/Desktop/irestore/build/irestore.build/Debug/irestore.build/DerivedSources -c /Users/kitty/Desktop/irestore/irestore.c -o /Users/kitty/Desktop/irestore/build/irestore.build/Debug/irestore.build/Objects-normal/i386/irestore.o1#
+lSLF07#2@48"Compile /Users/kitty/Desktop/irestore/irestore.c337152630#337152630#0(178"/Users/kitty/Desktop/irestore/irestore.c: In function 'main':/Users/kitty/Desktop/irestore/irestore.c:53: warning: passing argument 2 of 'getopt' from incompatible pointer type1(22@61"Passing argument 2 of 'getopt' from incompatible pointer type337152630#62#116#0(6@40"/Users/kitty/Desktop/irestore/irestore.c337152630#53#0#53#0#56"passing argument * of '*' from incompatible pointer type0(0#0#40"/Users/kitty/Desktop/irestore/irestore.c2489991712#1257"    cd /Users/kitty/Desktop/irestore    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch i386 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/kitty/Desktop/irestore/build/irestore.build/Debug/irestore.build/irestore-generated-files.hmap -I/Users/kitty/Desktop/irestore/build/irestore.build/Debug/irestore.build/irestore-own-target-headers.hmap -I/Users/kitty/Desktop/irestore/build/irestore.build/Debug/irestore.build/irestore-all-target-headers.hmap -iquote /Users/kitty/Desktop/irestore/build/irestore.build/Debug/irestore.build/irestore-project-headers.hmap -F/Users/kitty/Desktop/irestore/build/Debug -F/Developer/SDKs/MacOSX10.6.sdk/System/Library/PrivateFrameworks -I/Users/kitty/Desktop/irestore/build/Debug/include -I/Users/kitty/Desktop/irestore/build/irestore.build/Debug/irestore.build/DerivedSources/i386 -I/Users/kitty/Desktop/irestore/build/irestore.build/Debug/irestore.build/DerivedSources -c /Users/kitty/Desktop/irestore/irestore.c -o /Users/kitty/Desktop/irestore/build/irestore.build/Debug/irestore.build/Objects-normal/i386/irestore.o0#
 
 CCompileC build/irestore.build/Debug/irestore.build/Objects-normal/i386/main.o /Users/kitty/Desktop/irestore/main.c normal i386 c com.apple.compilers.gcc.4_2
 r0
 
 CLd /Users/kitty/Desktop/irestore/build/Debug/irestore normal i386
-s337147998.402227
-e337147998.419447
+s337152630.806661
+e337152630.823321
 r1
 xLd
 x/Users/kitty/Desktop/irestore/build/Debug/irestore
 xnormal
 xi386
-lSLF07#2@55"Link /Users/kitty/Desktop/irestore/build/Debug/irestore337147998#337147998#0(0"0(0#0#0"2489991712#569"    cd /Users/kitty/Desktop/irestore    setenv MACOSX_DEPLOYMENT_TARGET 10.6    /Developer/usr/bin/gcc-4.2 -arch i386 -isysroot /Developer/SDKs/MacOSX10.6.sdk -L/Users/kitty/Desktop/irestore/build/Debug -F/Users/kitty/Desktop/irestore/build/Debug -F/Developer/SDKs/MacOSX10.6.sdk/System/Library/PrivateFrameworks -filelist /Users/kitty/Desktop/irestore/build/irestore.build/Debug/irestore.build/Objects-normal/i386/irestore.LinkFileList -mmacosx-version-min=10.6 -framework CoreFoundation -framework MobileDevice -o /Users/kitty/Desktop/irestore/build/Debug/irestore0#
+lSLF07#2@55"Link /Users/kitty/Desktop/irestore/build/Debug/irestore337152630#337152630#0(0"0(0#0#0"2489991712#569"    cd /Users/kitty/Desktop/irestore    setenv MACOSX_DEPLOYMENT_TARGET 10.6    /Developer/usr/bin/gcc-4.2 -arch i386 -isysroot /Developer/SDKs/MacOSX10.6.sdk -L/Users/kitty/Desktop/irestore/build/Debug -F/Users/kitty/Desktop/irestore/build/Debug -F/Developer/SDKs/MacOSX10.6.sdk/System/Library/PrivateFrameworks -filelist /Users/kitty/Desktop/irestore/build/irestore.build/Debug/irestore.build/Objects-normal/i386/irestore.LinkFileList -mmacosx-version-min=10.6 -framework CoreFoundation -framework MobileDevice -o /Users/kitty/Desktop/irestore/build/Debug/irestore0#
 

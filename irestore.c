@@ -1,5 +1,5 @@
 #include "irestore.h"
-#include <getopt.h>
+
 int ret;
 void normalCallback(AMDeviceNotificationRef notif) {
 	puts("Found device in Normal Mode");	
@@ -9,16 +9,20 @@ void normalCallback(AMDeviceNotificationRef notif) {
 		exit(ret);
 	}	
 }
+																								 
+void restoreCallback(void* d) {
+	printf("Restoring...");	
+}
 void dfuCallback(AMDFUModeDeviceRef dev) {
 	puts("Found device in DFU Mode");	
-	AMRestorePerformDFUModeRestore(dev, createOptions(), <#void *callback#>, NULL);
+	AMRestorePerformDFURestore(dev, createOptions(),restoreCallback, NULL);
 }
 void disdfuCallback(AMDFUModeDeviceRef dev) {
 	printf("Device exited DFU Mode\n");
 }
 void recoveryCallback(AMRecoveryModeDeviceRef dev) {
-	puts("Found device in Recovery Mode");
-	AMRestorePerformRecoveryModeRestore(dev, createOptions(), <#void *callback#>, NULL);
+	puts("Found device in Recovery Mode");	
+	AMRestorePerformRecoveryModeRestore(dev, createOptions(), restoreCallback, NULL);
 }
 void disRecoveryCallback(AMRecoveryModeDeviceRef dev) {
 	printf("Device exited Recovery Mode\n");
@@ -38,10 +42,8 @@ void usage() {
 	printf("\t-v        Be verbose\n");
 }
 int main (int argc, const char **argv[]) {
-	
-	CFShow(createOptions());
-	
-    if (argc < 2) {
+    
+	if (argc < 2) {
 		usage();
 		return 0;
 	}

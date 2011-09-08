@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "MobileDevice.h"
 #include <CoreFoundation/CoreFoundation.h>
+#include <getopt.h>
 
 #define RESTORE 1
 #define UPDATE 2

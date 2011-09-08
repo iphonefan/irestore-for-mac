@@ -110,6 +110,8 @@ typedef void (* AMRecoveryModeDeviceConnectionCallback)(AMRecoveryModeDeviceRef 
 typedef void (* AMDFUModeDeviceConnectionCallback)(AMDFUModeDeviceRef device);
 typedef void (* AMDeviceConnectionCallback)(AMDeviceNotificationRef notification);
 
+typedef void (* AMRestoreCallback)(void* a);
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -164,7 +166,7 @@ extern "C" {
 	CFTypeID AMRecoveryModeDeviceGetTypeID(AMRecoveryModeDeviceRef device);
 	
 	AMStatus AMRecoveryModeDeviceCopyAuthInstallPreflightOptions(AMRecoveryModeDeviceRef device, CFDictionaryRef inputOptions, CFDictionaryRef *newRestoreOptions);
-	AMStatus AMRestorePerformRecoveryModeRestore(AMRecoveryModeDeviceRef device, CFDictionaryRef restoreOptions, void *callback, void *userInfo);
+	AMStatus AMRestorePerformRecoveryModeRestore(AMRecoveryModeDeviceRef device, CFDictionaryRef restoreOptions, AMRestoreCallback callback, void *userInfo);
 	
 	// Functions for use with AMRestoreModeDeviceRef objects(restore interface)
 	
@@ -177,7 +179,7 @@ extern "C" {
 	uint16_t AMDFUModeDeviceGetProductID(AMDFUModeDeviceRef device);
 	uint32_t AMDFUModeDeviceGetProductType(AMDFUModeDeviceRef device);
 	uint64_t AMDFUModeDeviceGetECID(AMDFUModeDeviceRef device);
-	AMStatus AMRestorePerformDFUModeRestore(AMDFUModeDeviceRef device, CFDictionaryRef restoreOptions, void *callback, void *userInfo);
+	AMStatus AMRestorePerformDFURestore(AMDFUModeDeviceRef device, CFDictionaryRef restoreOptions, AMRestoreCallback callback, void *userInfo);
     
 	AMStatus USBMuxConnectByPort(int connectionID, int phonePort, CFSocketNativeHandle *outHandle);
 	// Log functions (iSn0wra1n)
