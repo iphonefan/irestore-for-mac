@@ -1,8 +1,16 @@
 #include "irestore.h"
 
 int ret;
+
+//Without any local reference AMDeviceNotificationSubscribe fail with code -402653177
+AMDeviceSubscriptionRef notification;
+
 void normalCallback(AMDeviceNotificationRef notif) {
 	puts("Found device in Normal Mode");	
+	ret = AMDeviceConnect(notif->device); //Without this AMDeviceEnterRecovery fail
+	ret = AMDevicePair(notif->device); //Without this AMDeviceEnterRecovery fail
+	ret = AMDeviceValidatePairing(notif->device); //Without this AMDeviceEnterRecovery fail
+	ret = AMDeviceStartSession(notif->device); //Without this AMDeviceEnterRecovery fail
 	ret = AMDeviceEnterRecovery(notif->device);
 	if (ret != 0) {
 		puts("Device could not enter recovery mode!\n");
@@ -22,7 +30,10 @@ void disdfuCallback(AMDFUModeDeviceRef dev) {
 }
 void recoveryCallback(AMRecoveryModeDeviceRef dev) {
 	puts("Found device in Recovery Mode");	
-	AMRestorePerformRecoveryModeRestore(dev, createOptions(), restoreCallback, NULL);
+	
+	//Restore process start here, but unfortunately fail and function return error 5.
+	//I'm pretty sure it's an easy fix, but I have no idea at the moment
+	ret = AMRestorePerformRecoveryModeRestore(dev, createOptions(), restoreCallback, NULL);
 }
 void disRecoveryCallback(AMRecoveryModeDeviceRef dev) {
 	printf("Device exited Recovery Mode\n");
@@ -41,7 +52,9 @@ void usage() {
 	printf("\t-b        Prevent baseband update\n");
 	printf("\t-v        Be verbose\n");
 }
-int main (int argc, const char **argv[]) {
+
+//int main (int argc, const char **argv[]) { //This cause a semantic issue on xcode
+int main (int argc, const char *argv[]) {
     
 	if (argc < 2) {
 		usage();
@@ -88,7 +101,9 @@ int main (int argc, const char **argv[]) {
 		AMRestoreSetLogLevel(0);
 	}
 	
-	ret = AMDeviceNotificationSubscribe(normalCallback, 0, 0, 0, NULL);
+	//Without any local reference AMDeviceNotificationSubscribe fail with code -402653177
+	//ret = AMDeviceNotificationSubscribe(normalCallback, 0, 0, 0, NULL);
+	ret = AMDeviceNotificationSubscribe(normalCallback, 0, 0, 0, &notification);
 	if (ret != 0) {
 		printf("AMDeviceNotificationSubscribe failed with status %d\n",ret);
 		exit(ret);
