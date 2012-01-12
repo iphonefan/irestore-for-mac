@@ -1,2 +1,13 @@
-Only for mac...
-Doesnt require iTunes
+Mac Utility to restore firmwares on iDevices without iTunes
+
+This is iRestore revised from me. The application has been written originally from iSnowRain and should be still available in its own repository. Unfortunately in its own version there are several errors that prevents the application from running.
+I fixed all of them and now the application succesfully start the restore process.
+Unfortunately AMRestorePerformRecoveryModeRestore fail and return error 5. I have no idea on what could be wrong, but I'm pretty sure that should be an easy fix.
+Different firmwares and devices does not make any difference.
+
+I sent a pull request to iSnowRain in order to work on this, but I didn't got any reply and I had no other choice than close the request and write this little help here.
+iSnowRain has developed really nice apps, but unfortunately their life is really short (no more than a few months) and mostly of them get deleted.
+
+This time, instead of waiting for the deletion of the official project, I decided to save the last updated version here in the hope that could be usefull for someone that know how to fix it.
+
+Thanks
