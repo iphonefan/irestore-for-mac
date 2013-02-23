@@ -1,31 +1,73 @@
 #include "irestore.h"
 
-int ret;
+void restoreCallback(void* d) {
+	printf("Restoring: arg=%p\n", d);
+}
+
 void normalCallback(AMDeviceNotificationRef notif) {
-	puts("Found device in Normal Mode");	
-	ret = AMDeviceEnterRecovery(notif->device);
-	if (ret != 0) {
-		puts("Device could not enter recovery mode!\n");
-		exit(ret);
-	}	
+	printf("normalCallback: device=%p message=%i subscription=%s\n", notif->device, notif->message, notif->subscription);
+    if (notif->message == kAMDeviceNotificationMessageConnected) {
+        if(AMDeviceConnect(notif->device) == -402653144) { //kAMDWrongDroidError
+            printf("Should be in restore mode.\n");
+            
+            CFMutableDictionaryRef dOptions = AMRestoreCreateDefaultOptions(kCFAllocatorDefault);
+            CFDictionarySetValue(dOptions, CFSTR("RestoreBundlePath"), cs(ipsw));
+            CFDictionarySetValue(dOptions, CFSTR("AuthInstallRestoreBehavior"), CFSTR("Update"));
+            
+            if(verbose)
+                NSLog(CFSTR("%@"), dOptions);
+            
+            AMRestorePerformRestoreModeRestore(AMRestoreModeDeviceCreate(0, AMDeviceGetConnectionID(notif->device), 0), dOptions, restoreCallback, NULL);
+        }
+    }
 }
 																								 
-void restoreCallback(void* d) {
-	printf("Restoring...");	
+void dfuConnectCallback(AMDFUModeDeviceRef dev) {
+	printf("Found device in DFU Mode: device=%p\n", dev);
+    
+    CFMutableDictionaryRef cOptions = AMRestoreCreateDefaultOptions(kCFAllocatorDefault);
+	if (MODE == RESTORE)
+        CFDictionarySetValue(cOptions, CFSTR("AuthInstallRestoreBehavior"), CFSTR("Erase"));
+	else
+        CFDictionarySetValue(cOptions, CFSTR("AuthInstallRestoreBehavior"), CFSTR("Update"));
+    CFDictionarySetValue(cOptions, CFSTR("AuthInstallSigningServerURL"), cs(signingServer));
+    CFDictionarySetValue(cOptions, CFSTR("SourceRestoreBundlePath"), cs(ipsw));
+	if (updateBB == false)
+		CFDictionarySetValue(cOptions, CFSTR("UpdateBaseband"), kCFBooleanFalse);
+
+    if(verbose)
+        NSLog(CFSTR("%@"), cOptions);
+    
+	AMRestorePerformDFURestore(dev, cOptions, restoreCallback, NULL);
 }
-void dfuCallback(AMDFUModeDeviceRef dev) {
-	puts("Found device in DFU Mode");	
-	AMRestorePerformDFURestore(dev, createOptions(),restoreCallback, NULL);
+
+void dfuDisconnectCallback(AMDFUModeDeviceRef dev) {
+	printf("Device exited DFU Mode: device=%p\n", dev);
 }
-void disdfuCallback(AMDFUModeDeviceRef dev) {
-	printf("Device exited DFU Mode\n");
+
+void recoveryConnectCallback(AMRecoveryModeDeviceRef dev) {
+	printf("Found device in Recovery Mode: device=%p\n", dev);
+    
+    CFMutableDictionaryRef cOptions = AMRestoreCreateDefaultOptions(kCFAllocatorDefault);
+	if (MODE == RESTORE)
+        CFDictionarySetValue(cOptions, CFSTR("AuthInstallRestoreBehavior"), CFSTR("Erase"));
+	else
+        CFDictionarySetValue(cOptions, CFSTR("AuthInstallRestoreBehavior"), CFSTR("Update"));
+    CFDictionarySetValue(cOptions, CFSTR("AuthInstallSigningServerURL"), cs(signingServer));
+    CFDictionarySetValue(cOptions, CFSTR("SourceRestoreBundlePath"), cs(ipsw));
+	if (updateBB == false)
+		CFDictionarySetValue(cOptions, CFSTR("UpdateBaseband"), kCFBooleanFalse);
+	CFMutableDictionaryRef dOptions = CFDictionaryCreateMutable(NULL, 0, &kCFTypeDictionaryKeyCallBacks, &kCFTypeDictionaryValueCallBacks);
+    AMRecoveryModeDeviceCopyAuthInstallPreflightOptions(dev, cOptions, &dOptions);
+    
+    if(verbose)
+        NSLog(CFSTR("%@"), dOptions);
+
+	AMRestorePerformRecoveryModeRestore(dev, dOptions, restoreCallback, NULL);
 }
-void recoveryCallback(AMRecoveryModeDeviceRef dev) {
-	puts("Found device in Recovery Mode");	
-	AMRestorePerformRecoveryModeRestore(dev, createOptions(), restoreCallback, NULL);
-}
-void disRecoveryCallback(AMRecoveryModeDeviceRef dev) {
-	printf("Device exited Recovery Mode\n");
+
+void recoveryDisconnectCallback(AMRecoveryModeDeviceRef dev) {
+	printf("Device exited Recovery Mode: device=%p\n", dev);
 }
 
 void usage() {
@@ -41,13 +83,14 @@ void usage() {
 	printf("\t-b        Prevent baseband update\n");
 	printf("\t-v        Be verbose\n");
 }
-int main (int argc, const char **argv[]) {
+
+int main (int argc, char **argv) {
+	int c, ret;
     
 	if (argc < 2) {
 		usage();
 		return 0;
-	}
-	int c;
+	}    
 	
 	while ((c = getopt(argc, argv, "i:rus:bv")) != EOF) {
 		switch (c) {
@@ -88,12 +131,13 @@ int main (int argc, const char **argv[]) {
 		AMRestoreSetLogLevel(0);
 	}
 	
-	ret = AMDeviceNotificationSubscribe(normalCallback, 0, 0, 0, NULL);
+    AMDeviceSubscriptionRef subscription;
+	ret = AMDeviceNotificationSubscribe(normalCallback, 0, 0, 0, &subscription);
 	if (ret != 0) {
 		printf("AMDeviceNotificationSubscribe failed with status %d\n",ret);
 		exit(ret);
 	}
-	ret = AMRestoreRegisterForDeviceNotifications(dfuCallback, recoveryCallback, disdfuCallback, disRecoveryCallback, 0, NULL);
+	ret = AMRestoreRegisterForDeviceNotifications(dfuConnectCallback, recoveryConnectCallback, dfuDisconnectCallback, recoveryDisconnectCallback, 0, NULL);
 	if (ret != 0) {
 		printf("AMRestoreRegisterForDeviceNotifications failed with status %d\n", ret);
 		exit(ret);
@@ -101,27 +145,4 @@ int main (int argc, const char **argv[]) {
 	
 	CFRunLoopRun();
 	return 0;
-}
-
-CFMutableDictionaryRef createOptions() {
-	CFMutableDictionaryRef dOptions = AMRestoreCreateDefaultOptions(kCFAllocatorDefault);
-	CFMutableDictionaryRef cOptions = CFDictionaryCreateMutable(NULL, 0, &kCFTypeDictionaryKeyCallBacks, &kCFTypeDictionaryValueCallBacks);
-	if (MODE == RESTORE) {
-		CFDictionarySetValue(dOptions, CFSTR("AuthInstallVariant"), CFSTR("Customer Erase Install (IPSW)"));
-	}
-	else {
-		CFDictionarySetValue(dOptions, CFSTR("AuthInstallVariant"), CFSTR("Customer Upgrade Install (IPSW)"));
-	}
-
-	CFDictionarySetValue(dOptions, CFSTR("AuthInstallSigningServerURL"), cs(signingServer));
-	CFDictionarySetValue(dOptions, CFSTR("SourceRestoreBundlePath"), cs(ipsw));
-	
-	if (updateBB == false) {
-		CFDictionarySetValue(dOptions, CFSTR("UpdateBaseband"), kCFBooleanFalse);
-	}
-	
-	CFDictionarySetValue(cOptions, CFSTR("BootOptions"), dOptions);
-	CFDictionarySetValue(cOptions, CFSTR("RestoreOptions"), dOptions);
-	
-	return cOptions;
 }
